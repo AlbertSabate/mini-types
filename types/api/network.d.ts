@@ -11,14 +11,20 @@ declare namespace my {
     /**
      * 响应码
      *
-     * - 11：无权跨域
-     * - 12：网络出错
-     * - 13：超时
-     * - 14：解码失败
-     * - 15：HTTP错误
-     * - 16：请求已被停止/服务端限流
+     * - 2: 参数错误 - Parameter error.
+     * - 11：无权跨域 - Not authorized to cross domains.
+     * - 12：网络出错 - Network error.
+     * - 13：超时 - Time out.
+     * - 14：解码失败 - Decoding failed.
+     * - 15：小程序页面传参如果做urlencode需要把整体参数进行编码 - If the applet page passes parameters, the overall parameters need to be encoded if it is urlencode.
+     * - 19：HTTP错误 - HTTP error.
+     * - 20: 请求已被停止/服务端限流 - The request has been stopped / the server is throttling.
+     * - 23: 代理请求失败 - The proxy request failed.
      */
-    readonly status?: 11 | 12 | 13 | 14 | 19;
+    readonly error?: 2 | 11 | 12 | 13 | 14 | 15 | 19 | 20 | 23;
+    readonly errorMessage?: string;
+
+    readonly status?: number;
 
     /**
      * 响应头
