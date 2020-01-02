@@ -6,7 +6,14 @@ declare namespace my {
     /**
      * 响应数据，格式取决于请求时的 dataType 参数
      */
-    readonly data?: any;
+    readonly data: any;
+
+    readonly status: number;
+
+    /**
+     * 响应头
+     */
+    readonly headers: Readonly<Record<string, string>>;
 
     /**
      * 响应码
@@ -23,13 +30,6 @@ declare namespace my {
      */
     readonly error?: 2 | 11 | 12 | 13 | 14 | 15 | 19 | 20 | 23;
     readonly errorMessage?: string;
-
-    readonly status?: number;
-
-    /**
-     * 响应头
-     */
-    readonly headers?: Readonly<Record<string, string>>;
   }
 
   /**
